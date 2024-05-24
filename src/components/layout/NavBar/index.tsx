@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import styles from './NavBar.module.scss'
 import Image from 'next/image'
+import SearchBox from '@/components/common/SearchBox'
 
 export const NavBar = () => {
   return (
@@ -15,6 +16,7 @@ export const NavBar = () => {
             />
           </Link>
           <div className={styles['nav-header__search-box']}>
+            <SearchBox/>
           </div>
       </div>
     </header>

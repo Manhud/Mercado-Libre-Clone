@@ -1,0 +1,48 @@
+@import '@theme/colors.scss';
+@import '@theme/spacings.scss';
+
+.searchBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  &__inputContainer {
+    position: relative;
+    width: 100%;
+  }
+
+  &__input {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: 1.5px solid $transparent;
+    border-radius: $spacing-xxxs;
+    font-size: 1rem;
+    font-weight: 400;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+    &:focus {
+      border-color: $tertiary;
+      box-shadow: 0 0 1px $transparent;
+      outline: 0;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: 5px; 
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $white;
+    border: none;
+    color: $gray-darkest;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 96%; 
+    width: 30px;
+  }
+}
