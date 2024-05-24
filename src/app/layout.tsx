@@ -1,6 +1,6 @@
 import React from 'react'
 import './globals.scss'
-import { SearchBox } from '@/components/layout/SearchBox';
+import { NavBar } from '@/components/layout/NavBar';
 import { Montserrat } from '@next/font/google';
 
 const montserrat = Montserrat({
@@ -17,7 +17,7 @@ export default async function RootLayout ({
     <html lang='en' className={montserrat.className}>
       <body>
         <>
-          <SearchBox/>
+          <NavBar/>
           {children}
         </>
       </body>

@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import styles from './SearchBox.module.scss'
+import styles from './NavBar.module.scss'
 import Image from 'next/image'
 
-export const SearchBox = () => {
+export const NavBar = () => {
   return (
     <header className={styles['nav-header']}>
       <div className={styles['nav-header__nav-bounds']}>
@@ -14,7 +14,9 @@ export const SearchBox = () => {
               alt="Logo"
             />
           </Link>
-        </div>
+          <div className={styles['nav-header__search-box']}>
+          </div>
+      </div>
     </header>
   )
 }

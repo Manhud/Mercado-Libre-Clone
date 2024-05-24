@@ -25,4 +25,9 @@
   &__logo {
     grid-area: nav-left-top;
   }
+  &__search-box {
+    grid-area: nav-center-top;
+    height: 40px;
+    align-items: center;
+  }
 }
