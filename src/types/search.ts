@@ -1,4 +1,4 @@
-export interface Items {
+export interface Item {
   id: string;
   title: string;
   price: {
@@ -18,5 +18,5 @@ export interface SearchApiResponse {
     lastname: string;
   };
   categories: string[];
-  items: Items[];
+  items: Item[];
 }

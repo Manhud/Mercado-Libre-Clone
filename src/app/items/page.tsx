@@ -1,5 +1,6 @@
 import { fetchSearchResults } from '@/services/search';
 import styles from './items.module.scss';
+import { ItemCard } from '@/components/ui/ItemCard';
 
 export default async function SearchResults({ searchParams }: { searchParams: { search: string } }) {
   const search = searchParams.search || '';
@@ -25,7 +26,7 @@ export default async function SearchResults({ searchParams }: { searchParams: { 
           <ol className={styles['ui-container__results--stack']}>
             {results.items.map((item) => (
               <li key={item.id} className={styles['ui-container__results--item']}>
-                {/* TODO ITEM COMPONENT */}
+                <ItemCard item={item}/>
               </li>
             ))}
           </ol>
