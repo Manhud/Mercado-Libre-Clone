@@ -44,5 +44,14 @@
     justify-content: center;
     height: 96%; 
     width: 30px;
+    &:before {
+      content: "";
+      display: block;
+      height: 20px;
+      border-left: 1px solid $gray-dark;
+      position: absolute;
+      top: 8.5px;
+      right: 35px;
+    }
   }
 }
