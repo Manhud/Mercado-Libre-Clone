@@ -1,5 +1,28 @@
 @import '@theme/colors.scss';
+@import '@theme/spacings.scss';
 
-.title {
-    color: $primary;
+.nav-header {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  background-color: $background;
+
+  &__nav-bounds {
+    max-width: 1200px;
+    display: grid;
+    grid-template-areas:
+      "nav-left-top nav-center-top nav-right-top"
+      "nav-left-bottom nav-center-bottom nav-right-bottom";
+    grid-template-columns: 162px minmax(340px, 588px) minmax(350px, 390px);
+    grid-template-rows: 40px 28px;
+    column-gap: $spacing-lg;
+    grid-column-gap: $spacing-lg;
+    row-gap: $spacing-sm;
+    grid-row-gap: $spacing-sm;
+    padding: $spacing-sm $spacing-xs $spacing-sm $spacing-xs;
+  }
+
+  &__logo {
+    grid-area: nav-left-top;
+  }
 }
