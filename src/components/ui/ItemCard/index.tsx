@@ -28,8 +28,8 @@ export const ItemCard: React.FC<ProductProps> = ({ item }) => {
             <div className={styles['item-content-wrapper__columns--left']}>
               <div className={styles['item-group']}>
                 <span className={styles['item-group--amount']}>
-                  {item.price.amount.toLocaleString("es-AR", {
-                    currency: item.price.currency,
+                  {item?.price?.amount?.toLocaleString("es-AR", {
+                    currency: item?.price?.currency,
                     style: 'currency',
                   })}
                 </span>

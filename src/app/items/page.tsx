@@ -1,6 +1,7 @@
 import { fetchSearchResults } from '@/services/search';
 import styles from './items.module.scss';
 import { ItemCard } from '@/components/ui/ItemCard';
+import CategoryBreadcrumb from '@/components/ui/CategoryBreadcrumb';
 
 export default async function SearchResults({ searchParams }: { searchParams: { search: string } }) {
   const search = searchParams.search || '';
@@ -15,12 +16,7 @@ export default async function SearchResults({ searchParams }: { searchParams: { 
     return (
       <div className={styles['ui-container']}>
         <aside className={styles['ui-container__sidebar']}>
-          <h2>Categorías</h2>
-          <ul>
-            {results.categories.map((category, index) => (
-              <li key={index}>{category}</li>
-            ))}
-          </ul>
+        <CategoryBreadcrumb categories={results.categories} />
         </aside>
         <section className={styles['ui-container__results']}>
           <ol className={styles['ui-container__results--stack']}>
