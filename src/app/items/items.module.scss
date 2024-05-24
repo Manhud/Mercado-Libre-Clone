@@ -1,0 +1,36 @@
+.ui-container {
+  max-width: 1215px;
+  margin: 0 auto;
+  padding: 0 28px;
+  width: 100%;
+  display: flex;
+  margin-top: 32px;
+
+  &__sidebar {
+    margin-top: 4px;
+    flex: 1 1;
+    flex-wrap: wrap;
+    max-width: 294px;
+    min-width: 210px;
+    padding-right: 14px;
+    width: 100%;
+  }
+
+  &__results {
+    display: flex;
+    flex-direction: column;
+    width: 885px;
+
+    &--stack {
+      display: grid;
+      gap: 0;
+      grid-template-columns: repeat(1, minmax(240px, 1fr));
+    }
+
+    &--item {
+      border-bottom: thin solid #eee;
+      flex-grow: 1;
+      width: 100%;
+    }
+  }
+}
