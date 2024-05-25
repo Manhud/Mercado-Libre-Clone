@@ -34,8 +34,8 @@ export default async function ItemPage({ params }: ItemPageProps) {
             })}
         </p>
         <div className={styles['button-container']}>
-          <Button  variant="primary">Comprar ahora</Button>
-          <Button  variant="secondary">Agregar al carrito</Button>
+          <Button onClick={() => console.log('comprar')} variant="primary">Comprar ahora</Button>
+          <Button onClick={() => console.log('carrito')} variant="secondary">Agregar al carrito</Button>
         </div>
       </div>
     </section>
