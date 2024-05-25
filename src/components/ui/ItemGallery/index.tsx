@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import styles from './ItemGallery.module.scss'
-import { Item } from '@/types/search';
+import { Item } from '@/types/item';
 
 interface ItemGalleryProps {
     item: Item;
