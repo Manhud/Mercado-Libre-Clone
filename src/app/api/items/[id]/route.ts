@@ -1,27 +1,6 @@
+import { ItemApiResponse, Item } from '@/types/item';
 import { NextRequest, NextResponse } from 'next/server';
 
-interface ItemDetails {
-  id: string;
-  title: string;
-  price: {
-    currency: string;
-    amount: number;
-    decimals: number;
-  };
-  picture: string;
-  condition: string;
-  free_shipping: boolean;
-  sold_quantity: number;
-  description: string;
-}
-
-interface ApiResponse {
-  author: {
-    name: string;
-    lastname: string;
-  };
-  item: ItemDetails;
-}
 
 export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   const { id } = params;
@@ -33,11 +12,16 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   try {
     const itemResponse = await fetch(`https://api.mercadolibre.com/items/${id}`);
     const itemData = await itemResponse.json();
-console.log(itemData);
+
     const descriptionResponse = await fetch(`https://api.mercadolibre.com/items/${id}/description`);
     const descriptionData = await descriptionResponse.json();
-console.log(descriptionData);
-    const itemDetails: ItemDetails = {
+
+    const categoriesResponse = await fetch(`https://api.mercadolibre.com/categories/${itemData.category_id}`);
+    const categoriesData = await categoriesResponse.json();
+
+    const categories = categoriesData.path_from_root.map((category: { id: string; name: string }) => category.name);
+    
+    const itemDetails: Item = {
       id: itemData.id,
       title: itemData.title,
       price: {
@@ -50,9 +34,10 @@ console.log(descriptionData);
       free_shipping: itemData.shipping.free_shipping,
       sold_quantity: itemData.sold_quantity,
       description: descriptionData.plain_text,
+      categories
     };
-
-    const apiResponse: ApiResponse = {
+    
+    const apiResponse: ItemApiResponse = {
       author: {
         name: 'Juan ',
         lastname: 'Rozo',

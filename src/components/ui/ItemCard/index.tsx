@@ -1,4 +1,4 @@
-import { Item } from "@/types/search";
+import { Item } from '@/types/item';
 import styles from './ItemCard.module.scss';
 import Image from 'next/image';
 import Link from "next/link";

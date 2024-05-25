@@ -28,6 +28,14 @@
         flex-shrink: 1;
         min-width: 325px;
         padding: 16px;
-        
     }
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.category-breadcrumb {
+    margin-bottom: 20px;
 }

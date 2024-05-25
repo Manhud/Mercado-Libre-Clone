@@ -12,9 +12,9 @@ export async function GET(req: NextRequest) {
   try {
     const response = await fetch(`https://api.mercadolibre.com/sites/MCO/search?q=${query}`);
     const data = await response.json();
-    const categories = data.filters.find((filter: any) => filter.id === 'category')?.values[0]?.path_from_root.map((cat: any) => cat.name) || [];
+    const categories = data?.filters?.find((filter: any) => filter.id === 'category')?.values[0]?.path_from_root?.map((cat: any) => cat.name) || [];
     
-    const items = data.results.map((item: any) => ({
+    const items = data?.results?.map((item: any) => ({
       id: item.id,
       title: item.title,
       price: {

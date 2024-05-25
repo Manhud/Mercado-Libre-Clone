@@ -1,16 +1,5 @@
-export interface Item {
-  id: string;
-  title: string;
-  price: {
-    currency: string;
-    amount: number;
-    decimals: number;
-  };
-  category?: string;
-  picture: string;
-  condition: string;
-  free_shipping: boolean;
-}
+import { Item } from "./item";
+
 
 export interface SearchApiResponse {
   author: {

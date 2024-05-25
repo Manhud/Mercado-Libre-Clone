@@ -2,8 +2,8 @@
 
 import React from 'react'
 import styles from './ItemDetails.module.scss'
-import { Item } from '@/types/search';
 import { Button } from '../Button';
+import { Item } from '@/types/item';
 
 interface ItemDetailsProps {
     item: Item;
@@ -17,7 +17,7 @@ export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
     <>
         <p>{conditionText}</p>   
         <h1 className={styles['item-title']}>{item.title}</h1> 
-        <p className={styles['item-price']} >{item.price.amount.toLocaleString("es-AR", {
+        <p className={styles['item-price']} >{item.price.amount.toLocaleString("es-CO", {
                 currency: item?.price?.currency,
                 style: 'currency',
             })}
