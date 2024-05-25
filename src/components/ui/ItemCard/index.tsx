@@ -11,15 +11,17 @@ export const ItemCard: React.FC<ProductProps> = ({ item }) => {
   return (
     <div className={styles['item-wrapper']}>
       <div className={styles['item-card']}>
-        <figure className={styles['item-image']}>
-          <Image 
-            src={item.picture} 
-            alt={item.title} 
-            width={160} 
-            height={160} 
-            className={styles['item-image__img']}
-          />
-        </figure>
+         <Link href={`/items/${item.id}`} >
+          <figure className={styles['item-image']}>
+            <Image 
+              src={item.picture} 
+              alt={item.title} 
+              width={160} 
+              height={160} 
+              className={styles['item-image__img']}
+            />
+          </figure>
+         </Link>
         <div className={styles['item-content-wrapper']}>
           <Link href={`/items/${item.id}`} className={styles['item-content-wrapper--title']}>
               {item.title}
