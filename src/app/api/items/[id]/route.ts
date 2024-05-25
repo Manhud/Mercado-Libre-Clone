@@ -33,10 +33,10 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   try {
     const itemResponse = await fetch(`https://api.mercadolibre.com/items/${id}`);
     const itemData = await itemResponse.json();
-
+console.log(itemData);
     const descriptionResponse = await fetch(`https://api.mercadolibre.com/items/${id}/description`);
     const descriptionData = await descriptionResponse.json();
-
+console.log(descriptionData);
     const itemDetails: ItemDetails = {
       id: itemData.id,
       title: itemData.title,
@@ -54,8 +54,8 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
     const apiResponse: ApiResponse = {
       author: {
-        name: 'YourName',
-        lastname: 'YourLastName',
+        name: 'Juan ',
+        lastname: 'Rozo',
       },
       item: itemDetails,
     };

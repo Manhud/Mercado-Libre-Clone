@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}`);
+    const response = await fetch(`https://api.mercadolibre.com/sites/MCO/search?q=${query}`);
     const data = await response.json();
     const categories = data.filters.find((filter: any) => filter.id === 'category')?.values[0]?.path_from_root.map((cat: any) => cat.name) || [];
     
@@ -30,8 +30,8 @@ export async function GET(req: NextRequest) {
 
     const apiResponse: SearchApiResponse = {
       author: {
-        name: 'YourName',
-        lastname: 'YourLastName',
+        name: 'Juan',
+        lastname: 'Rozo',
       },
       categories,
       items,
