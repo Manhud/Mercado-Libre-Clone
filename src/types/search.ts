@@ -6,7 +6,7 @@ export interface Item {
     amount: number;
     decimals: number;
   };
-  category: string;
+  category?: string;
   picture: string;
   condition: string;
   free_shipping: boolean;
