@@ -14,7 +14,7 @@ export default async function RootLayout ({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className={montserrat.className}>
+    <html lang='en'>
       <body>
         <>
           <NavBar/>
