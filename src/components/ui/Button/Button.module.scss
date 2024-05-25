@@ -1,0 +1,36 @@
+@import '@theme/colors.scss';
+
+.button {
+  padding: 0px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  height: 48px;
+  transition: background-color 0.3s ease;
+
+  &.primary {
+    background-color: $tertiary;
+    color: white;
+
+    &:hover {
+      background-color: $darker-blue
+    }
+  }
+
+  &.secondary {
+    background-color: $light-blue;
+    color:  $tertiary;;
+
+    &:hover {
+      background-color: $dark-blue;
+    }
+  }
+
+  &:disabled {
+    background-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
+  }
+}

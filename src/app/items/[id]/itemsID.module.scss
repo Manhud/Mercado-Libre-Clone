@@ -27,7 +27,6 @@
                 height: auto;
             }
         }
-        
     }
     &--right {
         border: 1px solid rgba(0, 0, 0, .1);
@@ -52,6 +51,12 @@
         .item-price {
             font-size: 36px;
             font-weight: 100;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 26px;
         }
     }
 }

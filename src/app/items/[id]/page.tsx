@@ -1,6 +1,7 @@
 import { fetchItemDetails } from '@/services/item';
 import styles from './itemsID.module.scss'
 import Image from 'next/image';
+import { Button } from '@/components/ui/Button';
 
 interface ItemPageProps {
   params: {
@@ -32,7 +33,10 @@ export default async function ItemPage({ params }: ItemPageProps) {
               style: 'currency',
             })}
         </p>
-        {/* <p>{item.}</p> */}
+        <div className={styles['button-container']}>
+          <Button  variant="primary">Comprar ahora</Button>
+          <Button  variant="secondary">Agregar al carrito</Button>
+        </div>
       </div>
     </section>
   )
