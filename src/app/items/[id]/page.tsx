@@ -11,6 +11,9 @@ interface ItemPageProps {
 export default async function ItemPage({ params }: ItemPageProps) {
   const { id } = params;
   const { item } = await fetchItemDetails(id);
+
+  const conditionText = item.condition === 'new' ? 'Nuevo' : 'Usado';
+
   
   return (
     <section className={styles['item-container']}>
@@ -22,7 +25,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
         <p>{item.description}</p>  
       </div>
       <div className={styles['item-container--right']}>
-        <p>{item.condition}</p>
+        <p>{conditionText}</p>   
         <h1 className={styles['item-title']}>{item.title}</h1> 
         <p className={styles['item-price']} >{item.price.amount.toLocaleString("es-AR", {
               currency: item?.price?.currency,
