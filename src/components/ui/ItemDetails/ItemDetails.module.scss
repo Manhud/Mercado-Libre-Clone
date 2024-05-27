@@ -1,8 +1,11 @@
+@import '@theme/spacings.scss';
+@import '@theme/variables.scss';
+
 .item-title {
     flex: auto;
     font-size: 22px;
-    margin-bottom: 8px;
-    margin-right: 28px;
+    margin-bottom: $spacing-xs;
+    margin-right: $spacing-lg;
     padding: 0;
     font-weight: 500;
     hyphens: auto;
@@ -16,5 +19,5 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-top: 26px;
+    margin-top: $spacing-lg;
 }

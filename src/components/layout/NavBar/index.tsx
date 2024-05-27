@@ -5,7 +5,6 @@ import styles from './NavBar.module.scss'
 import Image from 'next/image'
 import SearchBox from '@/components/common/SearchBox'
 import { useWindowSize } from '@/hooks/useWindowSize'
-
 export const NavBar = () => {
 
   const { width } = useWindowSize();

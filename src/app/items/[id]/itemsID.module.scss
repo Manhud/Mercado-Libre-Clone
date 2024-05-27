@@ -1,16 +1,18 @@
 @import '@theme/variables.scss';
 @import '@theme/mixins.scss';
+@import '@theme/colors.scss';
+@import '@theme/spacings.scss';
 
 .item-container {
-    border-radius: 4px;
-    background-color: #fff;
+    border-radius: $spacing-xxs;
+    background-color: $white;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .25);
     box-sizing: border-box;
     display: flex;
-    padding: 16px;
+    padding: $spacing-md;
     flex-direction: row;
     &--left {
-        margin-top: 50px;
+        margin-top: $spacing-xxl;
         flex-basis: 0%;
         flex-grow: 2;
         flex-direction: column;
@@ -18,22 +20,22 @@
         display: flex;
         flex-shrink: 1;
         width: 100%;
-        padding-bottom: 40px;
+        padding-bottom: $spacing-xl;
         min-width: 800px;
         @include respond-to-sm {
             min-width: auto;
         }
     }
     &--right {
-        border: 1px solid rgba(0, 0, 0, .1);
-        margin-left: 48px;
+        border: 1px solid $transparent2;
+        margin-left: $spacing-xxl;
         max-width: 368px;
         width: 368px;
         flex-basis: 0%;
         flex-grow: 1;
         flex-shrink: 1;
         min-width: 325px;
-        padding: 16px;
+        padding: $spacing-md;
     }
     .wrapper {
         display: flex;

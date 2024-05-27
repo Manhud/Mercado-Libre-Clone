@@ -1,18 +1,19 @@
 @import '@theme/colors.scss';
+@import '@theme/spacings.scss';
 
 .button {
-  padding: 0px 24px;
+  padding: 0px $spacing-lg;
   border: none;
-  border-radius: 6px;
+  border-radius: $spacing-xs;
   cursor: pointer;
-  font-size: 16px;
+  font-size: $spacing-md;
   font-weight: 500;
   height: 48px;
   transition: background-color 0.3s ease;
 
   &.primary {
     background-color: $tertiary;
-    color: white;
+    color: $white;
 
     &:hover {
       background-color: $darker-blue
@@ -26,11 +27,5 @@
     &:hover {
       background-color: $dark-blue;
     }
-  }
-
-  &:disabled {
-    background-color: #ddd;
-    color: #999;
-    cursor: not-allowed;
   }
 }
