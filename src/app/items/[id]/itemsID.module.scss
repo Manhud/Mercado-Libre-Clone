@@ -1,3 +1,6 @@
+@import '@theme/variables.scss';
+@import '@theme/mixins.scss';
+
 .item-container {
     border-radius: 4px;
     background-color: #fff;
@@ -17,6 +20,9 @@
         width: 100%;
         padding-bottom: 40px;
         min-width: 800px;
+        @include respond-to-sm {
+            min-width: auto;
+        }
     }
     &--right {
         border: 1px solid rgba(0, 0, 0, .1);

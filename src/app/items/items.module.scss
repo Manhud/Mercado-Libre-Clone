@@ -1,9 +1,17 @@
+@import '@theme/variables.scss';
+@import '@theme/mixins.scss';
+
 .ui-container {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
   display: flex;
   margin-top: 32px;
+  @include respond-to-sm {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
 
   &__sidebar {
     margin-top: 4px;
@@ -20,6 +28,9 @@
     flex-direction: column;
     width: 885px;
     margin-top: 40px;
+    @include respond-to-sm {
+      width: auto;
+    }
 
     &--stack {
       display: grid;

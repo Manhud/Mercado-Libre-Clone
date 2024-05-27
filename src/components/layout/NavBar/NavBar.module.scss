@@ -1,11 +1,17 @@
 @import '@theme/colors.scss';
 @import '@theme/spacings.scss';
+@import '@theme/variables.scss';
+@import '@theme/mixins.scss';
 
 .nav-header {
   height: 100px;
   display: flex;
   justify-content: center;
   background-color: $background;
+  @include respond-to-sm {
+       display: inline-block;
+       height: inherit;
+  }
 
   &__nav-bounds {
     max-width: 1200px;
@@ -20,6 +26,10 @@
     row-gap: $spacing-sm;
     grid-row-gap: $spacing-sm;
     padding: $spacing-sm $spacing-xs $spacing-sm $spacing-xs;
+    @include respond-to-sm {
+       display: flex;
+       column-gap: 5px;
+    }
   }
 
   &__logo {
@@ -29,5 +39,9 @@
     grid-area: nav-center-top;
     height: 40px;
     align-items: center;
+    @include respond-to-sm {
+       flex: 1;
+       
+    }
   }
 }
