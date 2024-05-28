@@ -2,16 +2,31 @@ import { fetchSearchResults } from '@/services/search';
 import styles from './items.module.scss';
 import { ItemCard } from '@/components/ui/ItemCard';
 import CategoryBreadcrumb from '@/components/ui/CategoryBreadcrumb';
+import Pagination from '@/components/ui/Pagination';
 
-export default async function SearchResults({ searchParams }: { searchParams: { search: string } }) {
+interface SearchResultsProps {
+  searchParams: {
+    search: string;
+    limit?: string;
+    offset?: string;
+  };
+}
+
+export default async function SearchResults({ searchParams }: SearchResultsProps) {
   const search = searchParams.search || '';
+  const limit = parseInt(searchParams.limit || '10');
+  const offset = parseInt(searchParams.offset || '0');
+  
   
   try {
-    const results = await fetchSearchResults(search);
+    const results = await fetchSearchResults(search, limit, offset);
     
     if (!results.items.length) {
       return <div>no se encontraron resultados para &quot;{search}&quot;</div>;
     }
+
+    const totalPages = Math.ceil(results.total / limit);
+    const currentPage = Math.floor(offset / limit) + 1;
 
     return (
       <div className={styles['ui-container']}>
@@ -26,6 +41,12 @@ export default async function SearchResults({ searchParams }: { searchParams: { 
               </li>
             ))}
           </ol>
+          <Pagination
+            search={search}
+            totalPages={totalPages}
+            currentPage={currentPage}
+            limit={limit}
+          />
         </section>
       </div>
     );

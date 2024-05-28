@@ -1,5 +1,7 @@
 @import '@theme/variables.scss';
 @import '@theme/mixins.scss';
+@import '@theme/colors.scss';
+@import '@theme/spacings.scss';
 
 .ui-container {
   max-width: 1200px;
@@ -39,9 +41,34 @@
     }
 
     &--item {
-      border-bottom: thin solid #eee;
+      border-bottom: thin solid $white;
       flex-grow: 1;
       width: 100%;
     }
+    .pagination {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-xxs;
+    margin-top: $spacing-lg;
+
+    a {
+      padding: $spacing-xxs $spacing-sm;
+      border: 1px solid $white;
+      background: $white;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+
+      &.active {
+        background: $background;
+        color: $white;
+        border-color: $background;
+      }
+
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+  }
   }
 }

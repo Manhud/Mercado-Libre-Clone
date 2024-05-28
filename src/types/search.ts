@@ -8,4 +8,7 @@ export interface SearchApiResponse {
   };
   categories: string[];
   items: Item[];
+  total: number;
+  limit: number;
+  offset: number;
 }

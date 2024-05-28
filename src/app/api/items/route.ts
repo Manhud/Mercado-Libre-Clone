@@ -1,20 +1,17 @@
-import { SearchApiResponse } from '@/types/search';
 import { NextRequest, NextResponse } from 'next/server';
+import { SearchApiResponse } from '@/types/search';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const query = searchParams.get('q');
-
-  if (!query) {
-    return NextResponse.json({ error: 'Query parameter is required' }, { status: 400 });
-  }
+  const query = searchParams.get('q') || '';
+  const limit = parseInt(searchParams.get('limit') || '10');
+  const offset = parseInt(searchParams.get('offset') || '0');
 
   try {
-    const response = await fetch(`https://api.mercadolibre.com/sites/MCO/search?q=${query}`);
+    const response = await fetch(`https://api.mercadolibre.com/sites/MCO/search?q=${query}&limit=${limit}&offset=${offset}`);
     const data = await response.json();
-    const categories = data?.filters?.find((filter: any) => filter.id === 'category')?.values[0]?.path_from_root?.map((cat: any) => cat.name) || [];
-    
-    const items = data?.results?.map((item: any) => ({
+
+    const items = data.results.map((item: any) => ({
       id: item.id,
       title: item.title,
       price: {
@@ -22,11 +19,12 @@ export async function GET(req: NextRequest) {
         amount: item.price,
         decimals: 2,
       },
-      category: item.category_id,
       picture: item.thumbnail,
       condition: item.condition,
       free_shipping: item.shipping.free_shipping,
     }));
+
+    const categories = data.filters.find((filter: any) => filter.id === 'category')?.values[0]?.path_from_root.map((category: any) => category.name) || [];
 
     const apiResponse: SearchApiResponse = {
       author: {
@@ -35,6 +33,9 @@ export async function GET(req: NextRequest) {
       },
       categories,
       items,
+      total: data.paging.total,
+      limit: data.paging.limit,
+      offset: data.paging.offset,
     };
 
     return NextResponse.json(apiResponse);
