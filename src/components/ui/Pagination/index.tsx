@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import styles from './Pagination.module.scss';
 
 interface PaginationProps {
@@ -9,7 +12,20 @@ interface PaginationProps {
 }
 
 const Pagination: React.FC<PaginationProps> = ({ search, totalPages, currentPage, limit }) => {
-  const maxPagesToShow = 10;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const maxPagesToShow = isMobile ? 1 : 10;
   const startPage = Math.floor((currentPage - 1) / maxPagesToShow) * maxPagesToShow + 1;
   const endPage = Math.min(startPage + maxPagesToShow - 1, totalPages);
 
@@ -20,7 +36,7 @@ const Pagination: React.FC<PaginationProps> = ({ search, totalPages, currentPage
           href={`/items?search=${search}&limit=${limit}&offset=${(startPage - maxPagesToShow - 1) * limit}`}
           className={styles.pagination__button}
         >
-            <span className={styles.icon}>&lt;</span> Anterior
+          <span className={styles.icon}>&lt;</span> Anterior
         </Link>
       )}
       {Array.from({ length: endPage - startPage + 1 }, (_, index) => (
