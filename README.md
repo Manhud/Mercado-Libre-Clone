@@ -31,7 +31,7 @@ Vercel url
 ### Capturas de pantalla de la web 
 
 ![Captura de pantalla en ordenador](https://github.com/Manhud/Mercado-Libre-Clone/assets/66143793/c355cc82-f5d0-4e3a-b54f-402451d1813f)
-)
+
 ![Captura de pantalla en ordenador](https://github.com/Manhud/Mercado-Libre-Clone/assets/66143793/aebeb11c-82dd-4609-9882-204814a91dbf)
 
 
