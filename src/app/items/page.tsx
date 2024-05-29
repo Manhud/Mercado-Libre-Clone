@@ -3,6 +3,7 @@ import styles from './items.module.scss';
 import { ItemCard } from '@/components/ui/ItemCard';
 import CategoryBreadcrumb from '@/components/ui/CategoryBreadcrumb';
 import Pagination from '@/components/ui/Pagination';
+import { Metadata } from 'next';
 
 interface SearchResultsProps {
   searchParams: {
@@ -11,6 +12,14 @@ interface SearchResultsProps {
     offset?: string;
   };
 }
+
+export async function generateMetadata({ searchParams }: SearchResultsProps): Promise<Metadata> {
+  const search = searchParams.search || '';
+  return {
+    title: `${search} | MercadoLibre`,
+  };
+}
+
 
 export default async function SearchResults({ searchParams }: SearchResultsProps) {
   const search = searchParams.search || '';

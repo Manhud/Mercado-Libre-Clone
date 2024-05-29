@@ -3,10 +3,19 @@ import styles from './itemsID.module.scss'
 import { ItemGallery } from '@/components/ui/ItemGallery';
 import { ItemDetails } from '@/components/ui/ItemDetails';
 import CategoryBreadcrumb from '@/components/ui/CategoryBreadcrumb';
+import { Metadata } from 'next';
+import { decodeTitleFromUrl, formatTitleForUrl } from '@/utils/formatUrl';
 
 interface ItemPageProps {
   params: {
     id: string;
+    title: string;
+  };
+}
+export async function generateMetadata({ params }: ItemPageProps): Promise<Metadata> {
+  const search = decodeTitleFromUrl(params.title) || '';
+  return {
+    title: `${search} | MercadoLibre`,
   };
 }
 
