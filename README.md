@@ -58,7 +58,6 @@ Vercel url
    ```
 
 3. Ejecuta el proyecto
-	 - Base de datos remota (necesario linkear con proyecto de Astro Studio)
    ```sh
    npm run dev
    ```
