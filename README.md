@@ -30,9 +30,9 @@ Vercel url
 
 ### Capturas de pantalla de la web 
 
-![Captura de pantalla en ordenador](https://github.com/Manhud/Mercado-Libre-Clone/assets/66143793/c355cc82-f5d0-4e3a-b54f-402451d1813f)
+![Captura de pantalla en ordenador](https://github.com/Manhud/Mercado-Libre-Clone/assets/66143793/f5b63900-96b5-4bd0-b656-49fe5c0c4182)
 
-![Captura de pantalla en ordenador](https://github.com/Manhud/Mercado-Libre-Clone/assets/66143793/aebeb11c-82dd-4609-9882-204814a91dbf)
+![Captura de pantalla en ordenador](https://github.com/Manhud/Mercado-Libre-Clone/assets/66143793/052b07b5-4afa-4efd-bfa4-774069b7403c)
 
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
